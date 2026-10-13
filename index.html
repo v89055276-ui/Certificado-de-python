@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Loading...</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #07090d;
+      color: #00ff91;
+      font-family: Consolas, monospace;
+    }
+
+    .panel {
+      width: 100%;
+      max-width: 600px;
+      padding: 30px;
+      border: 1px solid #00ff9166;
+      border-radius: 16px;
+      background: #0c1118;
+      box-shadow: 0 0 35px #00ff911c;
+    }
+
+    h1 {
+      font-size: clamp(22px, 5vw, 32px);
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #8ba99b;
+      text-align: center;
+    }
+
+    .track {
+      height: 18px;
+      background: #202832;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 24px 0 12px;
+    }
+
+    #bar {
+      width: 0;
+      height: 100%;
+      background: #00ff91;
+      transition: width .25s;
+      box-shadow: 0 0 15px #00ff91;
+    }
+
+    #percent {
+      text-align: right;
+    }
+
+    #log {
+      min-height: 125px;
+      color: #b7c9bf;
+      line-height: 1.8;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .hidden { display: none; }
+
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 15px;
+      border: 0;
+      border-radius: 8px;
+      background: #00e982;
+      color: #06140c;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #65ffb8; }
+
+    .warning {
+      color: #ffd166;
+      line-height: 1.7;
+    }
+
+    .joke {
+      text-align: center;
+      color: white;
+    }
+
+    .joke h2 {
+      color: #ffcf56;
+      font-size: 30px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #65756d;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="panel">
+    <section id="loading">
+      <h1>⬡ SYSTEM SCANNER</h1>
+      <p class="subtitle">Módulo de diagnóstico v4.2</p>
+
+      <div id="log">> Preparando sistema...</div>
+
+      <div class="track">
+        <div id="bar"></div>
+      </div>
+
+      <div id="percent">0%</div>
+      <p class="subtitle">No cierres esta ventana...</p>
+    </section>
+
+    <section id="result" class="hidden joke">
+      <h2>😂 ¡TE HEMOS PILLADO!</h2>
+      <p>Has esperado toda la carga para descubrir una broma.</p>
+      <p class="warning">
+        Se abrirá una página externa para adultos (Pornhub).
+        Continúa únicamente si tienes edad legal para acceder
+        y realmente deseas abrirla.
+      </p>
+
+      <button id="continue">CONTINUAR A LA PÁGINA EXTERNA</button>
+      <button id="stay" style="background:#303944;color:white">
+        JAJA, ME QUEDO AQUÍ
+      </button>
+    </section>
+
+    <div class="footer">Simulación de entretenimiento · No se escanean archivos</div>
+  </main>
+
+  <script>
+    const messages = [
+      "Inicializando interfaz...",
+      "Comprobando conexión...",
+      "Analizando paquetes imaginarios...",
+      "Buscando sentido a esta operación...",
+      "Detectando nivel de curiosidad...",
+      "Curiosidad: 100%",
+      "Preparando la sorpresa..."
+    ];
+
+    const bar = document.getElementById("bar");
+    const percent = document.getElementById("percent");
+    const log = document.getElementById("log");
+    const loading = document.getElementById("loading");
+    const result = document.getElementById("result");
+
+    let progress = 0;
+    let messageIndex = 0;
+
+    const timer = setInterval(() => {
+      progress = Math.min(progress + 2, 100);
+      bar.style.width = progress + "%";
+      percent.textContent = progress + "%";
+
+      const expectedIndex = Math.min(
+        Math.floor(progress / 15), messages.length - 1
+      );
+
+      if (expectedIndex !== messageIndex) {
+        messageIndex = expectedIndex;
+        log.textContent += "\n> " + messages[messageIndex];
+      }
+
+      if (progress >= 100) {
+        clearInterval(timer);
+        loading.classList.add("hidden");
+        result.classList.remove("hidden");
+      }
+    }, 100);
+
+    document.getElementById("continue").addEventListener("click", () => {
+      window.open("https://www.pornhub.com/", "_blank", "noopener");
+    });
+
+    document.getElementById("stay").addEventListener("click", () => {
+      result.innerHTML =
+        '<h2>🤣 ¡BROMA COMPLETADA!</h2>' +
+        '<p>Tranquilo, no se ha abierto ninguna página externa.</p>';
+    });
+  </script>
+</body>
+</html>
