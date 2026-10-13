@@ -4,190 +4,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System Loading...</title>
+  <title>Certificado Oficial de Python</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       padding: 20px;
-      background: #07090d;
-      color: #00ff91;
-      font-family: Consolas, monospace;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #101820, #172d42, #101820);
     }
 
-    .panel {
+    .contenedor {
       width: 100%;
-      max-width: 600px;
-      padding: 30px;
-      border: 1px solid #00ff9166;
-      border-radius: 16px;
-      background: #0c1118;
-      box-shadow: 0 0 35px #00ff911c;
+      max-width: 540px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 22px;
+      padding: 35px 25px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo {
+      font-size: 65px;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: clamp(22px, 5vw, 32px);
-      text-align: center;
+      color: #ffd343;
+      font-size: 30px;
+      margin-bottom: 12px;
     }
 
-    .subtitle {
-      color: #8ba99b;
-      text-align: center;
+    .descripcion {
+      color: #d6e2ee;
+      line-height: 1.6;
+      font-size: 16px;
     }
 
-    .track {
-      height: 18px;
-      background: #202832;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 24px 0 12px;
+    .aviso {
+      margin: 25px 0;
+      padding: 18px 12px;
+      border-radius: 12px;
+      background: rgba(255, 190, 0, 0.12);
+      border: 1px solid #ffcc33;
+      color: #ffda70;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.5;
+      animation: brillo 1.5s infinite;
     }
 
-    #bar {
-      width: 0;
-      height: 100%;
-      background: #00ff91;
-      transition: width .25s;
-      box-shadow: 0 0 15px #00ff91;
+    @keyframes brillo {
+      50% {
+        box-shadow: 0 0 18px rgba(255, 204, 51, 0.3);
+      }
     }
-
-    #percent {
-      text-align: right;
-    }
-
-    #log {
-      min-height: 125px;
-      color: #b7c9bf;
-      line-height: 1.8;
-      font-size: 14px;
-      overflow-wrap: anywhere;
-    }
-
-    .hidden { display: none; }
 
     button {
       width: 100%;
-      margin-top: 12px;
-      padding: 15px;
-      border: 0;
-      border-radius: 8px;
-      background: #00e982;
-      color: #06140c;
+      border: none;
+      border-radius: 12px;
+      padding: 17px 15px;
+      font-size: 18px;
       font-weight: bold;
-      font-size: 16px;
       cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
     }
 
-    button:hover { background: #65ffb8; }
-
-    .warning {
-      color: #ffd166;
-      line-height: 1.7;
+    button:hover {
+      transform: scale(1.03);
     }
 
-    .joke {
-      text-align: center;
-      color: white;
+    #recibir {
+      background: #ffd343;
+      color: #18212b;
     }
 
-    .joke h2 {
-      color: #ffcf56;
-      font-size: 30px;
+    #recibir:hover {
+      background: #ffe477;
     }
 
-    .footer {
-      text-align: center;
-      color: #65756d;
+    #estado {
+      min-height: 24px;
+      margin-top: 18px;
+      color: #b9e5ff;
+      font-size: 14px;
+    }
+
+    .pie {
+      margin-top: 25px;
+      color: #91a6ba;
       font-size: 12px;
-      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
-  <main class="panel">
-    <section id="loading">
-      <h1>⬡ SYSTEM SCANNER</h1>
-      <p class="subtitle">Módulo de diagnóstico v4.2</p>
+  <main class="contenedor">
 
-      <div id="log">> Preparando sistema...</div>
+    <div class="logo">🐍</div>
 
-      <div class="track">
-        <div id="bar"></div>
-      </div>
+    <h1>Certificado de Python</h1>
 
-      <div id="percent">0%</div>
-      <p class="subtitle">No cierres esta ventana...</p>
-    </section>
+    <p class="descripcion">
+      ¡Felicidades! Tu certificado de programación está listo.
+      Pulsa el siguiente botón para recibirlo.
+    </p>
 
-    <section id="result" class="hidden joke">
-      <h2>😂 ¡TE HEMOS PILLADO!</h2>
-      <p>Has esperado toda la carga para descubrir una broma.</p>
-      <p class="warning">
-        Se abrira tu certificado
-      </p>
+    <div class="aviso">
+      🔊 ¡POR FAVOR, SUBE EL VOLUMEN
+      PARA ESCUCHAR EL VIDEO TUTORIAL! 🎧
+    </div>
 
-      <button id="continue">CONTINUAR A LA PÁGINA EXTERNA</button>
-    </section>
+    <button id="recibir">
+      🎓 RECIBIR CERTIFICADO
+    </button>
 
-    <div class="footer">Simulación de entretenimiento · No se escanean archivos</div>
+    <p id="estado" aria-live="polite">
+      Esperando para recibir tu certificado...
+    </p>
+
+    <!-- CAMBIA "gemido.mp3" POR EL NOMBRE DE TU AUDIO -->
+    <audio id="sonido" preload="auto">
+      <source src="gemido.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="pie">
+      Plataforma de aprendizaje · Python
+    </div>
+
   </main>
 
   <script>
-    const messages = [
-      "Inicializando interfaz...",
-      "Comprobando conexión...",
-      "Analizando paquetes imaginarios...",
-      "Buscando sentido a esta operación...",
-      "Detectando nivel de curiosidad...",
-      "Curiosidad: 100%",
-      "Preparando la sorpresa..."
-    ];
+    const boton = document.getElementById("recibir");
+    const sonido = document.getElementById("sonido");
+    const estado = document.getElementById("estado");
 
-    const bar = document.getElementById("bar");
-    const percent = document.getElementById("percent");
-    const log = document.getElementById("log");
-    const loading = document.getElementById("loading");
-    const result = document.getElementById("result");
+    boton.addEventListener("click", async () => {
+      estado.textContent = "Preparando tu certificado...";
 
-    let progress = 0;
-    let messageIndex = 0;
+      try {
+        sonido.currentTime = 0;
+        await sonido.play();
 
-    const timer = setInterval(() => {
-      progress = Math.min(progress + 2, 100);
-      bar.style.width = progress + "%";
-      percent.textContent = progress + "%";
-
-      const expectedIndex = Math.min(
-        Math.floor(progress / 15), messages.length - 1
-      );
-
-      if (expectedIndex !== messageIndex) {
-        messageIndex = expectedIndex;
-        log.textContent += "\n> " + messages[messageIndex];
+        estado.textContent =
+          "¡Tu tutorial está en reproducción! 🎧";
+      } catch (error) {
+        estado.textContent =
+          "No se pudo reproducir el audio. Revisa el nombre y la ubicación del archivo.";
       }
-
-      if (progress >= 100) {
-        clearInterval(timer);
-        loading.classList.add("hidden");
-        result.classList.remove("hidden");
-      }
-    }, 100);
-
-    document.getElementById("continue").addEventListener("click", () => {
-      window.open("https://www.pornhub.com/", "_blank", "noopener");
-    });
-
-    document.getElementById("stay").addEventListener("click", () => {
-      result.innerHTML =
-        '<h2>🤣 ¡BROMA COMPLETADA!</h2>' +
-        '<p>Tranquilo, no se ha abierto ninguna página externa.</p>';
     });
   </script>
 </body>
